@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html><html lang="uk"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Octo | Портфоліо GrowthFactory</title><link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><style>
+.project-wrap{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start}
+@media(max-width:1024px){.project-wrap{grid-template-columns:1fr}}
+.project-sidebar{position:sticky;top:90px}
+.project-meta-card{background:#f8fafc;border-radius:16px;padding:24px;margin-bottom:20px}
+.project-meta-card h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#1a1a2e;margin-bottom:16px}
+.meta-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e0e0e0;font-size:13.5px}
+.meta-row:last-child{border-bottom:none}
+.meta-label{color:#777;font-weight:600}
+.meta-value{color:#1a1a2e;font-weight:700;text-align:right}
+.result-badge{background:linear-gradient(135deg,#1a6be0,#00b4d8);color:#fff;border-radius:12px;padding:20px 24px;margin-top:20px}
+.result-badge h4{color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;opacity:.85}
+.result-badge p{color:#fff;font-size:14px;line-height:1.65;margin:0}
+</style></head><body>
+<div class="top-bar"><div class="container"><div class="top-bar-left"><a href="#"><i class="fas fa-map-marker-alt"></i> вул. Мазепи 10, офіс 503, м. Луцьк</a><a href="mailto:info24@GrowthFactory.ua"><i class="fas fa-envelope"></i> info24@GrowthFactory.ua</a></div><div class="top-bar-right"><a href="tel:+380965615559"><i class="fas fa-phone"></i> +38 (096) 561 55 59</a></div></div></div>
+<header class="header"><div class="container"><a href="../index.html" class="logo"><img src="../assets/img/logo.png" alt="GrowthFactory" style="height:58px;display:block"></a><nav><ul class="nav"><li><a href="../index.html">Головна</a></li><li><a href="../services.html">Послуги</a></li><li><a href="../blog.html">Блог</a></li><li class="active"><a href="../portfolio.html">Портфоліо</a></li><li><a href="../pricing.html">Прайс</a></li><li><a href="../reviews.html">Відгуки</a></li><li><a href="../contacts.html">Контакти</a></li></ul></nav><a href="../contacts.html" class="header-cta"><i class="fas fa-paper-plane"></i> Надіслати запит</a><button class="burger"><span></span><span></span><span></span></button></div></header>
+<div class="mobile-menu"><button class="mobile-menu-close">&times;</button><a href="../index.html">Головна</a><a href="../portfolio.html">Портфоліо</a><a href="../contacts.html">Контакти</a></div>
+<section class="page-hero"><div class="container"><div class="page-hero-content reveal"><span style="background:rgba(255,255,255,0.2);padding:4px 16px;border-radius:20px;font-size:12.5px;font-weight:700;text-transform:uppercase">Інтернет-магазин</span><h1 style="font-size:clamp(1.8rem,3.5vw,2.8rem);margin-top:14px">OCTO</h1></div></div></section>
+<nav style="background:#f8fafc;padding:12px 0;border-bottom:1px solid #e0e0e0"><div class="container"><div class="breadcrumb"><a href="../index.html">Головна</a><span>/</span><a href="../portfolio.html">Портфоліо</a><span>/</span> Octo</div></div></nav>
+
+<section class="section"><div class="container"><div class="project-wrap">
+
+<div>
+<img src="https://picsum.photos/860/480?random=1" alt="Octo" style="width:100%;border-radius:16px;margin-bottom:36px;object-fit:cover;max-height:480px" class="reveal">
+
+<div class="reveal">
+<h2 class="section-title">ПРО ПРОЄКТ</h2>
+<p style="font-size:15.5px;color:#444;line-height:1.85;margin-bottom:32px">Octo — бренд електронних аксесуарів, що вийшов на ринок онлайн-торгівлі. Клієнту потрібна була сучасна платформа для продажу продукції з інтуїтивним інтерфейсом і надійною системою оплати. Ми розробили React-фронтенд з Node.js-бекендом, реалізували каталог з фільтрами і пошуком, кошик з підрахунком доставки, особистий кабінет покупця з історією замовлень та інтеграцію Stripe для карткових платежів. Адаптивний дизайн забезпечує зручність на будь-якому пристрої.</p>
+
+<h2 class="section-title">ЩО БУЛО РЕАЛІЗОВАНО</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
+<div class="service-card" style="padding:20px"><div class="service-icon" style="width:44px;height:44px;font-size:18px"><i class="fas fa-check-circle"></i></div><h3 style="font-size:13.5px;margin-bottom:6px">Каталог товарів з фільтрами</h3><p style="font-size:12.5px;color:#777">Каталог товарів з фільтрами і пошуком у реальному часі</p></div>
+<div class="service-card" style="padding:20px"><div class="service-icon" style="width:44px;height:44px;font-size:18px"><i class="fas fa-check-circle"></i></div><h3 style="font-size:13.5px;margin-bottom:6px">Кошик з розрахунком вартості</h3><p style="font-size:12.5px;color:#777">Кошик з розрахунком вартості доставки</p></div>
+<div class="service-card" style="padding:20px"><div class="service-icon" style="width:44px;height:44px;font-size:18px"><i class="fas fa-check-circle"></i></div><h3 style="font-size:13.5px;margin-bottom:6px">Особистий кабінет покупця з</h3><p style="font-size:12.5px;color:#777">Особистий кабінет покупця з історією замовлень</p></div>
+<div class="service-card" style="padding:20px"><div class="service-icon" style="width:44px;height:44px;font-size:18px"><i class="fas fa-check-circle"></i></div><h3 style="font-size:13.5px;margin-bottom:6px">Онлайн-оплата через Stripe та</h3><p style="font-size:12.5px;color:#777">Онлайн-оплата через Stripe та Apple/Google Pay</p></div>
+</div>
+
+<div style="border-top:2px solid #e0e0e0;margin-top:48px;padding-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+<a href="project-2.html" class="btn btn-primary btn-sm">Наступний <i class="fas fa-arrow-right"></i></a>
+<a href="../contacts.html" class="btn btn-primary btn-sm"><i class="fas fa-paper-plane"></i> Замовити подібний</a>
+</div>
+</div>
+</div>
+
+<div class="project-sidebar reveal">
+<div class="project-meta-card">
+<h4>Інформація про проєкт</h4>
+<div class="meta-row"><span class="meta-label">Клієнт</span><span class="meta-value">Octo</span></div>
+<div class="meta-row"><span class="meta-label">Тип</span><span class="meta-value">Інтернет-магазин</span></div>
+<div class="meta-row"><span class="meta-label">Рік</span><span class="meta-value">2026</span></div>
+<div class="meta-row"><span class="meta-label">Студія</span><span class="meta-value">GrowthFactory</span></div>
+</div>
+<div class="project-meta-card">
+<h4>Технології</h4>
+<p style="font-size:13.5px;color:#1a6be0;font-weight:600;line-height:1.8">React · Node.js · Stripe</p>
+</div>
+<div class="result-badge">
+<h4><i class="fas fa-chart-line"></i> Результати</h4>
+<p>За перший місяць після запуску — 320 замовлень. Середній чек зріс на 25% завдяки блоку рекомендованих товарів.</p>
+</div>
+<div style="margin-top:20px">
+<a href="../contacts.html" class="btn btn-primary" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Замовити проєкт</a>
+</div>
+</div>
+
+</div></div></section>
+
+<section class="cta-section"><div class="container"><div class="cta-inner reveal"><h2>Хочете такий самий результат?</h2><p>Розкажіть про ваш проєкт — зробимо безкоштовну оцінку</p><a href="../contacts.html" class="btn btn-white"><i class="fas fa-paper-plane"></i> Надіслати запит</a></div></div></section>
+<footer class="footer"><div class="container"><div class="footer-grid"><div><a href="../index.html" class="footer-logo">Growth<span>Factory</span></a><p class="footer-about">Студія веб-розробки GrowthFactory у Луцьку. Ми створюємо сайти, що приносять реальні результати вашому бізнесу.</p></div><div class="footer-col"><h4>Послуги</h4><ul><li><a href="../services/website-development.html">Розробка сайтів</a></li><li><a href="../services/branding.html">Дизайн і брендинг</a></li><li><a href="../services/internet-marketing.html">Інтернет Реклама</a></li><li><a href="../services/support.html">Технічна підтримка</a></li></ul></div><div class="footer-col"><h4>Навігація</h4><ul><li><a href="../index.html">Головна</a></li><li><a href="../portfolio.html">Портфоліо</a></li><li><a href="../blog.html">Блог</a></li><li><a href="../contacts.html">Контакти</a></li></ul></div><div class="footer-col"><h4>Контакти</h4><div class="footer-contact-item"><i class="fas fa-phone"></i><a href="tel:+380965615559">+38 (096) 561 55 59</a></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info24@GrowthFactory.ua">info24@GrowthFactory.ua</a></div><div class="footer-contact-item"><i class="fas fa-clock"></i><span>Пн–Пт: 9:00 – 18:00</span></div></div></div><div class="footer-bottom"><span>© 2022–2026 GrowthFactory. Усі права захищені.</span><span>Розробка сайтів у Луцьку</span></div></div></footer><script src="../assets/js/main.js"></script></body></html>
