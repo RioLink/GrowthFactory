@@ -62,6 +62,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
   showCookieConsent();
 
+  /* ---- Hero layered parallax ---- */
+  const hero = document.querySelector('[data-hero]');
+  const heroVisual = document.querySelector('[data-hero-visual]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointer = window.matchMedia('(pointer: fine)');
+
+  if (hero && heroVisual && !reduceMotion.matches && finePointer.matches) {
+    const heroLayers = heroVisual.querySelectorAll('[data-depth]');
+
+    hero.addEventListener('pointermove', function (event) {
+      const rect = hero.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+      heroLayers.forEach(function (layer) {
+        const depth = parseFloat(layer.dataset.depth || '1');
+        layer.style.translate = (x * depth * 15) + 'px ' + (y * depth * 11) + 'px';
+      });
+    });
+
+    hero.addEventListener('pointerleave', function () {
+      heroLayers.forEach(function (layer) {
+        layer.style.translate = '0 0';
+      });
+    });
+  }
+
   /* ---- Sticky Header ---- */
   const header = document.querySelector('.header');
   if (header) {
