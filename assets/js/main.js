@@ -4,6 +4,64 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  /* ---- Compact cookie consent ---- */
+  const consentCookieName = 'growthfactory_cookie_consent';
+  const consentLifetimeDays = 7;
+
+  function getConsentCookie() {
+    const prefix = consentCookieName + '=';
+    const cookie = document.cookie.split('; ').find(function (item) {
+      return item.indexOf(prefix) === 0;
+    });
+    return cookie ? decodeURIComponent(cookie.slice(prefix.length)) : '';
+  }
+
+  function saveConsentCookie(value) {
+    const expires = new Date(Date.now() + consentLifetimeDays * 24 * 60 * 60 * 1000);
+    const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = consentCookieName + '=' + encodeURIComponent(value) +
+      '; expires=' + expires.toUTCString() + '; path=/; SameSite=Lax' + secure;
+  }
+
+  function showCookieConsent() {
+    if (getConsentCookie()) return;
+
+    const popup = document.createElement('aside');
+    popup.className = 'cookie-consent';
+    popup.setAttribute('role', 'dialog');
+    popup.setAttribute('aria-label', 'Налаштування cookies');
+    popup.setAttribute('aria-live', 'polite');
+    popup.innerHTML =
+      '<div class="cookie-consent__mark" aria-hidden="true">●</div>' +
+      '<div class="cookie-consent__content">' +
+        '<p><strong>Cookies</strong> для роботи й аналітики сайту.</p>' +
+        '<div class="cookie-consent__actions">' +
+          '<button type="button" class="cookie-consent__button cookie-consent__button--accept" data-cookie-choice="accepted">Прийняти</button>' +
+          '<button type="button" class="cookie-consent__button" data-cookie-choice="rejected">Відхилити</button>' +
+          '<a href="/cookie-policy">Політика</a>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(popup);
+    window.requestAnimationFrame(function () {
+      popup.classList.add('is-visible');
+    });
+
+    popup.querySelectorAll('[data-cookie-choice]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        const choice = button.getAttribute('data-cookie-choice');
+        saveConsentCookie(choice);
+        document.dispatchEvent(new CustomEvent('growthfactory:cookie-consent', {
+          detail: { choice: choice }
+        }));
+        popup.classList.remove('is-visible');
+        window.setTimeout(function () { popup.remove(); }, 220);
+      });
+    });
+  }
+
+  showCookieConsent();
+
   /* ---- Sticky Header ---- */
   const header = document.querySelector('.header');
   if (header) {
