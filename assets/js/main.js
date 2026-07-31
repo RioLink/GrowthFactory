@@ -4,6 +4,64 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  /* ---- 2026 editorial layout shell ---- */
+  document.body.classList.add('gf-redesign');
+
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  let pageType = pathParts[0] || 'home';
+  if (pageType === 'services' && pathParts.length > 1) pageType = 'service-detail';
+  if (pageType === 'portfolio' && pathParts.length > 1) pageType = 'project-detail';
+  if (pageType === 'blog' && pathParts.length > 1) pageType = 'article-detail';
+  if (['privacy-policy', 'cookie-policy', 'terms-and-conditions', 'disclaimer'].indexOf(pageType) !== -1) pageType = 'legal';
+  document.body.dataset.page = pageType;
+
+  const siteHeader = document.querySelector('.header .container');
+  if (siteHeader && !siteHeader.querySelector('.header-edition')) {
+    const edition = document.createElement('div');
+    edition.className = 'header-edition';
+    edition.innerHTML = '<span>Growth system</span><strong>GF / 26</strong>';
+    siteHeader.insertBefore(edition, siteHeader.querySelector('nav'));
+  }
+
+  const pageHero = document.querySelector('.page-hero');
+  const breadcrumb = document.querySelector('.breadcrumb');
+  const breadcrumbNav = breadcrumb ? breadcrumb.closest('nav') : null;
+  if (pageHero && breadcrumbNav) {
+    breadcrumbNav.classList.add('page-hero-breadcrumbs');
+    pageHero.appendChild(breadcrumbNav);
+  }
+
+  /* ---- Repair legacy blog cards with nested links ---- */
+  document.querySelectorAll('.blog-grid').forEach(function (grid) {
+    Array.from(grid.children).forEach(function (mediaLink) {
+      if (!mediaLink.matches('a.blog-card') || !mediaLink.querySelector(':scope > img')) return;
+
+      const body = mediaLink.nextElementSibling;
+      if (!body || !body.matches('.blog-card-body')) return;
+
+      const article = document.createElement('article');
+      article.className = mediaLink.className;
+
+      const imageLink = document.createElement('a');
+      imageLink.className = 'blog-card-media';
+      imageLink.href = mediaLink.getAttribute('href') || '#';
+      imageLink.appendChild(mediaLink.querySelector(':scope > img'));
+
+      const copyLink = body.querySelector(':scope > a.blog-card');
+      if (copyLink) copyLink.className = 'blog-card-copy-link';
+
+      article.appendChild(imageLink);
+      article.appendChild(body);
+      grid.replaceChild(article, mediaLink);
+    });
+  });
+
+  document.querySelectorAll('.services-grid, .price-grid, .reviews-grid, .blog-grid, .port-grid, .portfolio-grid').forEach(function (grid) {
+    Array.from(grid.children).forEach(function (card, index) {
+      card.style.setProperty('--item-index', index + 1);
+    });
+  });
+
   /* ---- Compact cookie consent ---- */
   const consentCookieName = 'growthfactory_cookie_consent';
   const consentLifetimeDays = 7;
